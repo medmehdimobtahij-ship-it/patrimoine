@@ -1,0 +1,21 @@
+name = "patrimoine"
+main = "src/worker.js"
+compatibility_date = "2026-10-01"
+
+# Synchro en temps réel : Durable Object qui détient les données et notifie les appareils.
+[[durable_objects.bindings]]
+name = "SYNC"
+class_name = "SyncRoom"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["SyncRoom"]
+
+# Ancien stockage (KV), relu une seule fois pour reprendre les données.
+[[kv_namespaces]]
+binding = "DATA"
+id = "8ad30ef735254650ad76811e44566e2e"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"

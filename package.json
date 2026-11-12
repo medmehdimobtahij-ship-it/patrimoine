@@ -1,0 +1,14 @@
+{
+  "name": "patrimoine",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node tests/core.test.mjs && node tests/bank.test.mjs",
+    "demo": "node tools/serve.mjs",
+    "dev": "wrangler dev --ip 0.0.0.0",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.2"
+  }
+}
