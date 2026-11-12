@@ -1,5 +1,7 @@
 # Patrimoine
 
+[![Tests](https://github.com/medmehdimobtahij-ship-it/patrimoine/actions/workflows/demo.yml/badge.svg)](https://github.com/medmehdimobtahij-ship-it/patrimoine/actions/workflows/demo.yml)
+
 Application web installable (PWA) pour suivre son patrimoine et ses dépenses : soldes de tous les comptes, courbe du
 patrimoine net, bilan mensuel par catégorie, budgets et analyse automatique des habitudes de dépense.
 
