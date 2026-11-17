@@ -9,6 +9,12 @@ I use it every day on my phone.
 
 **[Try the demo](https://medmehdimobtahij-ship-it.github.io/patrimoine/)**, nothing to install, fake data, nothing is saved.
 
+## Demo vs the real thing
+
+The online demo only shows the app with 14 months of made-up transactions. **You can't connect a bank account or a Binance account in the demo**: there is no server behind it, so no bank sync, no crypto sync and no live sync between devices.
+
+To use it with your own accounts, you deploy your own copy on Cloudflare (free tier), with your own API keys stored on your server. That's the version I run every day.
+
 ![Net worth and accounts](docs/patrimoine.png)
 
 | Monthly summary | Spending analysis |
@@ -45,6 +51,24 @@ With Node.js 18+:
 ```
 
 Then open http://localhost:8787/?demo. The demo loads 14 months of fake transactions.
+
+Same as the online demo: fake data, no account connection.
+
+## Install your own copy
+
+```bash
+npm install
+npx wrangler login
+npx wrangler kv namespace create DATA   # put the id in wrangler.toml
+npm run deploy                          # gives you https://patrimoine.<account>.workers.dev
+npx wrangler secret put APP_TOKEN       # the app password (long, made up)
+npx wrangler secret put BINANCE_KEY     # optional: read-only Binance API key
+npx wrangler secret put BINANCE_SECRET
+npx wrangler secret put EB_APP_ID       # optional: Enable Banking app (open banking)
+npx wrangler secret put EB_PRIVATE_KEY  # content of the .pem file
+```
+
+Open the address in Chrome, "Install app", enter your `APP_TOKEN`, then connect your banks and Binance from the settings.
 
 Tests: `npm test`
 
